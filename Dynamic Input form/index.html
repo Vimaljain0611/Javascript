@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container" >
+        <div class="row form-row" style="background: #d8d8d8;">
+            <h2>Dynamically Adding Elements Inside Form</h2>  
+           <form id="add_inputs" name="add_inputs">
+                <table  class="table table-responsive-sm ">
+                    <thead>
+                        <tr>
+                            <th class="dyn-label"><input type="text" class="form-control" id="inputlabel" name="inputlabel"  placeholder="Label " required="">  </th>
+                            <th class="input-id" ><input type="text" class="form-control" id="inputId" onkeyup="check_id()"  placeholder="ID for Input" required="">  </th>
+                            <th class="form-group">
+                                <select class="form-control input-values"  id="inputType" required="">
+                                    <option value="">Input Type</option>
+                                    <option value="Text">Text</option>
+                                    <option value="number">Number</option>
+                                    <option value="date">Date</option>
+                                    <option value="range">Range</option>
+                                    <option value="email">Email</option>
+                                    <option value="color">Color</option>
+                                    <option value="submit">Submit</option>
+                                  </select>
+                            </th>
+                            <th class="th-btn"><button type="button" for="add_inputs" id="btnAdd" class="btn btn-success" onClick="insert_input(this.form)" >ADD</button></th>
+                            <th class="th-btn"> <button type="button" name="reset" class="btn btn-danger"  onClick="referesh()">Resfresh</button></th>
+
+                        </tr>
+                    </thead>
+                    <form >
+                        <tbody id="input-view">
+                        </tbody>
+                    </form>
+                </table> 
+            </form> 
+
+        </div>  
+        
+        <!-- div class="col-md-10 form-row" style="margin-bottom:10px;" id="edit_address" style="display: none;">
+            <form id="add_inputs" name="add_inputs">
+                <table  class="table table-responsive-sm" >
+                    <h2>Dynamically Form</h2> 
+                    <thead>
+                        <tr>
+                            <th class="dyn-label">Label</th>
+                            <th class="dyn-input">Input</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Form-view">
+                    </tbody> 
+                </table>
+            </form>
+         </div -->  
+
+         
+        
+    </section>     
+ <script src="script.js"></script>   
+</body>
+
+</html>

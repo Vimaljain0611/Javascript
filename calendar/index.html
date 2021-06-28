@@ -1,0 +1,174 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">   
+        
+        
+        
+    <div class="row" id="div_calender" >
+      
+        <div class="col-md-12"  id="headDiv">
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="headLabel">Month <span style="margin-left: 6px;">:</span></label>   
+                    <select name="month" id="month" onchange="get_days()">
+                        
+                        <option value=0>Jan</option>
+                        <option value=1>Feb</option>
+                        <option value=2>Mar</option>
+                        <option value=3>Apr</option>
+                        <option value=4>May</option>
+                        <option value=5>Jun</option>
+                        <option value=6>Jul</option>
+                        <option value=7>Aug</option>
+                        <option value=8>Sep</option>
+                        <option value=9>Oct</option>
+                        <option value=10>Nov</option>
+                        <option value=11>Dec</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="headLabel">Year <span style="margin-left: 18px;">:</span></label>
+                    <select  name="year" id="year" onchange="get_days()">
+
+                        <option value=2000>2000</option>
+                        <option value=2001>2001</option>
+                        <option value=2002>2002</option>
+                        <option value=2003>2003</option>
+                        <option value=2004>2004</option>
+                        <option value=2005>2005</option>
+                        <option value=2006>2006</option>
+                        <option value=2007>2007</option>
+                        <option value=2008>2008</option>
+                        <option value=2009>2009</option>
+                        <option value=2010>2010</option>
+                        <option value=2011>2011</option>
+                        <option value=2012>2012</option>
+                        <option value=2013>2013</option>
+                        <option value=2014>2014</option>
+                        <option value=2015>2015</option>
+                        <option value=2016>2016</option>
+                        <option value=2017>2017</option>
+                        <option value=2018>2018</option>
+                        <option value=2019>2019</option>
+                        <option value=2020>2020</option>
+                        <option value=2021>2021</option>
+                        <option value=2022>2022</option>
+                        <option value=2023>2023</option>
+                        <option value=2024>2024</option>
+                        <option value=2025>2025</option>
+                        <option value=2026>2026</option>
+                        <option value=2027>2027</option>
+                        <option value=2028>2028</option>
+                        <option value=2029>2029</option>
+                        <option value=2030>2030</option>
+                    </select>
+                </div> 
+            </div>       
+        </div>
+
+        <div class="col-md-12"  id="days_disply">
+            <table  class="table table-bordered table-responsive-sm" id="calendar">
+                <thead>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+                </thead>
+    
+                <tbody id="calendar-body">
+                        
+                </tbody>
+            </table>
+            
+         
+        </div>
+    </div>    
+
+    <!-- insert Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add Activity</h4>
+            </div>
+            <form action="" method="GET" id="activity_form">
+                <div class="modal-body" style="padding-bottom: 47px;"> 
+                    <label for="input_date">Date</label>
+                    <input type="text" id="input_date" name="input_date" readonly><br>
+                    
+                    <label for="activity">Activity</label>
+                    <textarea name="activity" id="activity" cols="40%" rows="3" placeholder="Enter Activity"></textarea>
+                </div>
+                <div class="modal-footer">
+                <button type="Submit" name="Submit" onClick="insert_acivity(this.form)" data-dismiss="modal">Submit</button>
+                </div>
+            </form>
+        </div>
+        
+        </div>
+    </div>
+
+    <!-- view Modal -->
+    <div class="modal fade" id="viewModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">View Activity</h4>
+              <h5>Date : <b><span id="showDate"></span> </b></h5>
+            </div>
+            
+            <div id="days_disply">
+                <table  class="table table-bordered table-responsive-sm" id="calendar">
+                    <thead>
+                    <tr>
+                       <th>Activity</th>
+                       <th class="action">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="data-view-body">
+                            
+                    </tbody>
+                </table>
+                
+             
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+      <div>
+          <label onclick="changeMonth(0)" class="calButoon"> Previous</label>
+          <label href="#" onclick="changeMonth(1)" class="calButoon" id="nextButton"> Next</label>
+      </div>    
+</div>  
+<script src="script.js"></script>    
+</body>
+</html>

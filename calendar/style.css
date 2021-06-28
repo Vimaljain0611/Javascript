@@ -1,0 +1,85 @@
+body{
+    margin:20;
+    background-image: url('background-nature.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+select{
+    width: 108px;
+    border: double;
+}
+td{
+    background: #d89c8a8a;
+   
+}
+.blank{
+    opacity: 0;
+}
+#div_calender{
+        margin-top: 14px;
+}
+thead tr{
+    background-color: #e88383;
+}
+th,td{
+    padding: 12px;
+    text-align: -webkit-center;
+    border: 0px !important;;
+}
+tbody td
+{
+    cursor: pointer;
+}
+#activity{
+    position: absolute;
+    margin-left: 16px;
+}
+#add_btn{
+    margin-right :3PX ;
+    /* margin-left :9PX  */
+}
+.action{
+    width: 20%;
+}
+
+#headDiv{
+    margin-bottom: 10px;
+    background: black;
+    padding: 14px 10px;
+    border-radius: 4px;
+  
+}
+.headLabel{
+    color: white;
+}
+.checks{
+    background: #8080808f;
+   
+}
+#calendar-body {
+    font-family: cursive;
+}
+.calButoon{
+    color: black;
+    font-weight: bold;
+    background: #e88383;
+    padding: 4px 21px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+#nextButton
+{
+    float: right;
+    padding: 4px 37px;
+}
+.view{
+    height: 24px;
+    background: white;
+    padding: 2px;
+    border-radius: 24px;
+}
+
+#days_disply{
+    padding: 0px;
+}

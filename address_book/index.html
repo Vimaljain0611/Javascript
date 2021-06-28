@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Book</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="container" >
+        <div class="row">
+        <div class="col-md-8" style="margin-bottom:10px;" class="container split left" >  
+            <h2>Address Book</h2>  
+            <table  class="table" style="border-style: double;">
+                <thead >
+                    <tr>
+                        <th >Edit</th>
+                        <th >Name</th>
+                        <th >Contact</th>
+                        <th >Gender</th>
+                        <th >Address</th>
+                        <th >Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="adress-view">
+                </tbody>
+                
+            </table>
+        </div> 
+        <div class="col-md-4" style="margin-bottom:10px;" id="add_address" >
+           <form id="add_address" name="add_address">
+                <table  class="table table-bordered table-responsive-sm">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Add Address</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                         <tr>
+                            <th class="table-th">First Name</th>
+                            <td class="table-th"><input type="text" id="firstName" name="firstName" class="input-values" placeholder="Enter First Name">  
+                         </tr> 
+                         <tr>
+                            <th class="table-th">Last Name</th>
+                            <td class="table-th"><input type="text" id="lastName" name="lastName" class="input-values" placeholder="Enter Last Name">  
+                         </tr>   
+                         <tr>
+                            <th class="table-th">Contact</th>
+                            <td class="table-th"><input type="number" id="contact" name="contact" class="input-values" placeholder="Enter Contact Number">  
+                         </tr>
+                         <tr>
+                            <th class="table-th">Gender</th>
+                            <td class="table-th" style="text-align: left;">  <input type="radio" id="male" name="gender" value="male" > <label for="male" style="margin-right: 10px;">Male</label> 
+                                <input type="radio" id="female" name="gender" value="female" > <label for="female" style="margin-right: 10px;">Female</label> 
+                                <input type="radio" id="other" name="gender" value="other" > <label for="other">Other</label> 
+                             </td>      
+                         </tr> 
+                         <tr>
+                            <th class="table-th">Address</th>
+                            <td class="table-th"><textarea id="address" name="address" rows="3" class="input-values" placeholder="Enter Address"></textarea>  
+                         </tr> 
+                         <tr>
+                            <th class="table-th" colspan="2">
+                                <button type="submit" name="submit" onClick="insert_address(this.form)">Submit</button>
+                                <button type="cancel" name="cancel" onClick="add_Details()">Cancel</button>
+                            </th>
+                         </tr>
+                    </tbody>
+                    </tbody>
+                </table> 
+            </form> 
+
+        </div>  
+        
+        <div class="col-md-4" style="margin-bottom:10px;" id="edit_address" style="display: none;">
+            <form id="edit_address" name="edit_address">
+                 <table  class="table table-bordered table-responsive-sm">
+                     <thead>
+                         <tr>
+                             <th colspan="2">Update Address</th>
+                         </tr>
+                     </thead>
+                     <tbody >
+                         <tr>
+                            <th>Id</th>
+                            <td><input type="text" id="uuid" name="uuid" class="input-values" readonly>  
+                         </tr>
+                          <tr>
+                             <th>First Name</th>
+                             <td><input type="text" id="update_firstName" name="update_firstName" class="input-values" placeholder="Enter First Name">  
+                          </tr> 
+                          <tr>
+                             <th>Last Name</th>
+                             <td><input type="text" id="update_lastName" name="update_lastName" class="input-values" placeholder="Enter Last Name">  
+                          </tr>   
+                          <tr>
+                             <th>Contact</th>
+                             <td><input type="number" id="update_contact" name="update_contact" class="input-values" placeholder="Enter Contact Number">  
+                          </tr> 
+                          <tr>
+                            <th>Gender</th>
+                            <td style="text-align: left;">  <input type="radio" id="update_male" name="update_gender" value="male" > <label for="male" style="margin-right: 10px;">Male</label> 
+                                <input type="radio" id="update_female" name="update_gender" value="female" > <label for="female" style="margin-right: 10px;">Female</label> 
+                                <input type="radio" id="update_other" name="update_gender" value="other" > <label for="other">Other</label> 
+                             </td>      
+                         </tr> 
+                          <tr>
+                             <th>Address</th>
+                             <td><textarea id="update_address" name="update_address" rows="3" class="input-values" placeholder="Enter Address"></textarea>  
+                          </tr> 
+                          <tr>
+                             <th colspan="2">
+                                 <button type="button" onClick="update_data(this.form)">Submit</button>
+                                 <button type="cancel" name="cancel" onClick="add_Details()">Cancel</button>
+                             </th>
+                          </tr>
+                     </tbody>
+                     </tbody>
+                 </table> 
+             </form> 
+ 
+         </div>  
+
+         
+        
+    </section>     
+ <script src="script.js"></script>   
+</body>
+
+</html>
